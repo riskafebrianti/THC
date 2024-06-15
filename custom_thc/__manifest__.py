@@ -29,6 +29,7 @@
         'views/templates.xml',
         'report/templet_boxed.xml',
         'report/sd.xml',
+        'report/fu.xml',
         'report/invTHC.xml',
     ],
     # only loaded in demonstration mode

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="custom_purchase_header_footer" inherit_id="web.external_layout_boxed">
+
+<xpath expr="//div[hasclass('text-center')]" position="replace">
+                    <!-- <div class="gambarttd" style="border:1px solid;  "> -->
+                        <img t-att-src="'/cust_diskon/static/src/img/my_image.png'" style="height:110px; float:right; display:flex; margin-bottom:-155px;"/>
+                    <!-- </div> -->
+            <div class="text-center">
+                <table style=" width:100%;">
+                    
+                    <tr style="">
+                    <td colspan="5" style="height:135px;  ">   
+                        <span style="float:left; margin-left:20px;">Penerima,</span>    
+                        <!-- <div style="line-height: 1.1em; border: 1px solid black;"></div> -->
+                    </td>
+                    <td colspan="5" style="height:135px; ">   
+                        <span style="float:left;margin-left:20px;">Dikirim,</span>    
+                        <!-- <div style="line-height: 1.1em; border: 1px solid black;"></div> -->
+                    </td>
+                
+                    <td colspan="2" style="height:135px; ">   
+                        <span style="float:left;margin-left:20px;">Disetujui,</span>   
+                        <!-- <div style="line-height: 1.1em; border: 1px solid black;"></div> -->
+                    </td>
+                    
+
+
+                    </tr>
+                </table>
+            </div>
+                    
+</xpath>
+ </template>
+
+
+</odoo>

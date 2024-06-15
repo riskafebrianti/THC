@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- diskon respartner -->
+<!-- model.name inherit form view -->
+    <record id="inherit_view_order_form" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!-- Add your xpath here -->
+            <field name="vat" position="after">
+                <field name="diskon"></field> 
+                <field name="kodevend"></field> 
+            </field>
+          
+        </field>
+    </record>
+
+    <record id="inherit_view_order" model="ir.ui.view">
+        <field name="name">inherit.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+           
+            <field name="display_name" position="after">
+                <field name="diskon"></field> 
+            </field>
+          
+        </field>
+    </record>
+
+
+<!-- sale.order inherit form view -->
+<record id="view_order_form_inherit_new" model="ir.ui.view">
+    <field name="name">sale.order.inherit.view.form</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+        <field name="partner_id" position="after">
+            <field name="diskon"></field>
+            <field name="barcode"/>
+        </field>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="account_move_kode_trans">
+        <field name="name">account.move</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="l10n_id_efaktur.account_move_efaktur_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='l10n_id_kode_transaksi']" position="after"> 
+                <field name="l10n_id_kode_transaksi" attrs="{'invisible': ['|', ('country_code', '!=', 'ID'), ('l10n_id_need_kode_transaksi', '=', True)], 'required': [('l10n_id_need_kode_transaksi', '=', True)]}"/>
+
+                
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -9,18 +9,31 @@
              <t t-call="web.external_layout">
                 <t t-set="o" t-value="o.with_context(lang=o._get_report_lang())" />
                 <t t-set="partner" t-value="o.partner_id or (o.move_ids and o.move_ids[0].partner_id) or False"/>
-
+                <!-- <div style="border:1px solid; width:30%;">
+                    <span style="font-size:25px; color:black; font-weight: bold; float:left; margin-top:120px;">
+                        <strong>Kepada : </strong>
+                             <span t-field="o.sale_id.partner_id"/>
+                    </span>
+                </div> -->
                 <div>
                     <span style="font-size:25px; color:black; font-weight: bold; float:right;">
                         <strong>SURAT JALAN</strong>
                     </span>
+                    <!-- <span style="font-size:17px; float:center; "> -->
+                        <span style="font-size:17px; float:center;" >Kepada : </span><br></br>
+                             <span style="margin-left:70px; font-weight: lighter;" t-field="o.sale_id.partner_id" /> <br></br>
+                             <span style="margin-left:70px; font-weight: lighter;" t-field="o.sale_id.partner_id.street"/>
+
+                    <!-- </span> -->
+                    <br></br>
+                    <br></br>
                     <br></br>
 
                 </div>
                  <t t-set="information_block">
                     <div class="row">
                         <div class="col-7" name="div_incoming_address">
-                            <t t-set="show_partner" t-value="False" />
+                            <t t-set="show_partner" t-value="True" />
 
                             <div name="vendor_address" t-if="o.picking_type_id.code=='incoming' and partner">
                                 <span><strong>Vendor Address:</strong></span>

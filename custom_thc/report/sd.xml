@@ -20,8 +20,8 @@
                         <strong>SURAT JALAN</strong>
                     </span>
                     <!-- <span style="font-size:17px; float:center; "> -->
-                        <span style="font-size:17px; float:center;" >Kepada : </span><br></br>
-                             <span style="margin-left:70px; font-weight: lighter;" t-field="o.sale_id.partner_id" /> <br></br>
+                        <span style="font-size:17px; float:center;" >Kepada : </span>
+                             <span style="font-weight: lighter;" t-field="o.sale_id.partner_id" /> <br></br>
                              <span style="margin-left:70px; font-weight: lighter;" t-field="o.sale_id.partner_id.street"/>
 
                     <!-- </span> -->

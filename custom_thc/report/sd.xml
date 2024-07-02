@@ -161,7 +161,7 @@
                         </tbody>
 
                     </table>
-                    <t t-set="backorders" t-value="o.backorder_ids.filtered(lambda x: x.state not in ('done', 'cancel'))"/>
+                    <!-- <t t-set="backorders" t-value="o.backorder_ids.filtered(lambda x: x.state not in ('done', 'cancel'))"/>
                     <t t-if="o.backorder_ids and backorders">
                         <p class="mt-5">
                             <span>Remaining quantities not yet delivered:</span>
@@ -188,7 +188,7 @@
                                     <t t-set="bo_lines" t-value="backorder.move_ids.filtered(lambda x: x.product_uom_qty)"/>
                                     <tr t-foreach="bo_lines" t-as="bo_line">
                                         <td class="w-auto">
-                                            <!-- <span t-field="bo_line.product_id"/> -->
+                                            <span t-field="bo_line.product_id"/>
                                             <span t-field="bo_line.product_id.product_tmpl_id.name"/>
                                             <p t-if="bo_line.description_picking != bo_line.product_id.name and bo_line.description_picking != bo_line.product_id.display_name">
                                                 <span t-field="bo_line.product_id.product_tmpl_id.name"/>
@@ -203,7 +203,7 @@
                                 </t>
                             </tbody>
                         </table>
-                    </t>
+                    </t> -->
 
                     <div t-if="o.signature" class="mt32 ml64 mr4" name="signature">
                         <div class="offset-8">

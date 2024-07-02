@@ -9,7 +9,7 @@
         <field name="print_report_name">'Follow-up Report'</field>
         <field name="binding_model_id" ref="model_res_partner"/>
     </record>  -->
-<template id="report_tagihan">
+<template id="report_tagihann">
 
     <t t-call="web.html_container">
         <div t-attf-class="o_company_#{company_id}_layout header" t-att-style="report_header_style" >
@@ -74,7 +74,7 @@
                 <div style="border:0px solid black; font-size:19px; margin-top:50px; float:left;">    
                     <span style="font-family:Calibri; font-size:28px; color:black; font-weight: bold;"> Tanda Terima</span><br/>
                     <span style="font-size:19px;"> Kepada : <span t-esc="docs.invoice_list[0].invoice_partner_display_name"/> </span><br/><br/>
-                    <span style="font-size:23px;"> Periode <span t-esc="docs.periode"/> </span>
+                    <!-- <span style="font-size:23px;"> Periode <span t-esc="docs.periode"/> </span> -->
                 </div>
            
              <table style="width:100%; border-collapse: collapse; border: 1px solid; ">
@@ -127,7 +127,7 @@
 <br/>
      <div style="line-height: 0.1em; border: 1px solid grey; "></div>
             
-            <span style="border: 0px solid; font-family:Calibri; font-size:16px; text-align: center; color:black;; width:100%;" >Terbilang : <span t-esc="x.number_to_words(sum(record.amount_total_signed for record in x.invoice_list.filtered(lambda r: r.to_check == True)),x.currency_id)"/></span>
+            <!-- <span style="border: 0px solid; font-family:Calibri; font-size:16px; text-align: center; color:black;; width:100%;" >Terbilang : <span t-esc="x.number_to_words(sum(record.amount_total_signed for record in x.invoice_list.filtered(lambda r: r.to_check == True)),x.currency_id)"/></span> -->
 <br/>
 <br/>
             <!-- <b style="color:black; font-size:18px;"> Keterangan : </b>

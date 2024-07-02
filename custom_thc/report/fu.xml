@@ -151,21 +151,21 @@
 
 
 <div class="footer">
-<img t-att-src="'/cust_diskon/static/src/img/my_image.png'" style="height:110px; float:right; display:flex; margin-bottom:-155px;"/>
+<img t-att-src="'/custom_thc/static/src/img/my_image.png'" style="height:110px; float:right; display:flex; margin-bottom:-155px;"/>
     <table style="border: 1px solid; border-collapse: collapse; width:100%; margin-top:100px;">
     
         <tr>
             <td style="border: 1px solid;height:120px; color:black;">   
-            <span style="float:left;margin-left:15px; margin-bottom:60px;">Administrasi,</span>    
+            <span style="float:left;margin-left:15px; margin-bottom:60px;">Penerima,</span>    
             <!-- <div style="line-height: 1.1em; border: 1px solid black; color:black;"></div> -->
         </td>
         <td style="border: 1px solid; height:120px; color:black;">   
-            <span style="float:left;margin-left:15px; margin-bottom:60px;">Penerima,</span>    
+            <span style="float:left;margin-left:15px; margin-bottom:60px;">Dikirim,</span>    
             <!-- <div style="line-height: 1.1em; border: 1px solid black; color:black;"></div> -->
         </td>
 
         <td style="border: 1px solid; height:120px; color:black;">   
-            <span style="float:left;margin-left:15px; margin-bottom:60px;">Mengetahui,</span>    
+            <span style="float:left;margin-left:15px; margin-bottom:60px;">Disetujui,</span>    
             <!-- <div style="line-height: 1.1em; border: 1px solid black; color:black;"></div> -->
             
         </td>

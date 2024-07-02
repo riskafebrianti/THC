@@ -1,93 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <record id="inherit_view_sales_new" model="ir.ui.view">
-        <field name="name">sale.order</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form"/>
+    <record model="ir.ui.view" id="stock_picking_form">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
         <field name="arch" type="xml">
-            <field name="product_template_id" position="after">
-                <field name="barcode"></field>
-                <field name="kode_hrg"></field>
-                <!-- <field name="add_diskon"></field> -->
-            </field>
-             <xpath expr="//field[@name='order_line']//tree//field[@name='price_subtotal']" position="before">
-                <field name="add_diskon"></field>
-            </xpath> 
-            <!-- <xpath expr="//field[@name='amount_total']" position="before">
-                <field name="add_diskon_total"></field>
-            </xpath>  -->
-            <!-- <xpath expr="//field[@name='amount_total']" position="after">
-            <field name="add_diskon"/>
-        </xpath> -->
-            <!-- <field name="price_subtotal" position="before">
-                <field name="add_diskon"></field>
-            </field> -->
-           
-            <!-- <field name="barcode" position="after">
-                
-                <button string="set partner data" name="set_partner_ref" type="object" class="oe_highlight"/> 
-            </field> -->
-            <!-- <xpath expr="//field[@name='order_line']//tree//field[@name='product_template_id']" position="before">
-                <button string="set partner daata" name="set_partner_ref" type="object" class="oe_highlight"/>
-            </xpath> -->
-        </field>
-    </record>
-<!-- 
-    <record id="inherit_view_product_template_kode_harga" model="ir.ui.view">
-        <field name="name">product.template</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_only_form_view"/>
-        <field name="arch" type="xml">
-            <field name="categ_id" position="after">
-                <field name="kode_hrg"></field>
-            </field>
             
+            <xpath expr="//page[@name='extra']//group//group[@name='other_infos']//field[@name='move_type']" position="before">
+                <field name="PO"/>
+            </xpath>
         </field>
-    </record> -->
-
-    <record id="inherit_view_product_template" model="ir.ui.view">
-        <field name="name">product.template</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_only_form_view"/>
-        <field name="arch" type="xml">
-            <!-- <field name="barcode" position="after">
-               <button icon="fa-barcode" name="set_partner_ref" type="object" class="oe_highlight"/> 
-                <field name="kode_hrg"></field>
-
-            </field> -->
-        <field name='barcode' position="attributes">
-               <attribute name="attrs">{'readonly': 1}</attribute>
-        </field>
-        
-
-         <field name="categ_id" position="after">
-                <field name="kode_hrg"></field>
-                <!-- <field name="barcode1"></field> -->
-            </field>
-        <field name="invoice_policy" position="after">                 
-                <field name="brand"></field>
-                
-
-        </field>
-      
-     </field>   
     </record>
+  
 
 </odoo>
-
-    <!-- model.name inherit form view -->
-    <!-- <record id="product.template" model="ir.ui.view">
-        <field name="name">product.template.inherit.view.form</field>
-        <field name="model">product.template</field>
-        <field name="inherit_id" ref="product.product_template_only_form_view"/>
-        <field name="arch" type="xml">
-           Add your xpath here
-            <field name="barcode" position="after">
-                <field name="tes"></field>
-            </field>
-        </field>
-    </record> -->
-
-
 

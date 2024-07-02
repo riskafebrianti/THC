@@ -4,14 +4,6 @@ from odoo.exceptions import UserError
 from datetime import datetime
 
 
-# class StockPicking(models.Model):
-#     _inherit = 'stock.picking'
-#     invoiced = fields.Char(compute='_compute_invoiced', string='invoiced')
-    
-#     # @api.depends('picking_id')
-#     def _compute_invoiced(self):
-#         if self.picking_ids:
-#             print(self)
 
         
 

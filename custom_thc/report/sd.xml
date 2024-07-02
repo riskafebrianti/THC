@@ -69,7 +69,7 @@
 
                         <div class="col-auto" name="div_ref">
                             <strong>Nomor PO:</strong>
-                             <p t-field="o.sale_id.client_order_ref"/>
+                             <p t-field="o.PO"/>
                         </div>
 
                         <div t-if="o.state" class="col-auto" name="div_sched_date">

@@ -235,6 +235,10 @@
                             </div>
                         </div>
                     </t>
+                    <div name="commentt">
+                        <span >Terbilang : <span t-esc="o.number_to_words(o.amount_total,o.currency_id)"/></span>
+                        <!-- <span t-field="o.narration"/> -->
+                    </div>
                     <div t-if="not is_html_empty(o.narration)" name="comment">
                         <span t-field="o.narration"/>
                     </div>

@@ -58,7 +58,7 @@
         </field>
     </record>
 
-
+<!-- 
     <record model="ir.ui.view" id="nama_model_form">
         <field name="name">res.partnerr.form</field>
         <field name="model">res.partnerr</field>
@@ -68,6 +68,6 @@
                 <field name="badan_hukum"/>
             </xpath>
         </field>
-    </record>
+    </record> -->
    
 </odoo>

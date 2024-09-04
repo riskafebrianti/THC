@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
     <template id="sale_order_report_inherit_template" inherit_id="sale.report_saleorder_document">
@@ -11,4 +11,4 @@
         </xpath>
     </template>
 
-</odoo>
+</odoo> -->

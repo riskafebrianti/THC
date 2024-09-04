@@ -11,6 +11,12 @@ class cust_diskon2(models.Model):
     _inherit = 'res.partner'
     diskon = fields.Integer('Diskon')
     kodevend = fields.Char(string='Kode Vendor')
+    
+    badan_hukum = fields.Selection(
+        string='badan_hukum', store=True,
+        selection=[('valor1', 'PT'), ('valor2', 'UD'), ('valor3', 'CV'), ('valor4', 'KOPRASI'), ('valor5', 'YAYASAN')]
+    )
+    
 
     def number_to_words(self, amount, currency):
 

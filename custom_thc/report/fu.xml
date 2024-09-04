@@ -73,7 +73,7 @@
 
                 <div style="border:0px solid black; font-size:19px; margin-top:50px; float:left;">    
                     <span style="font-family:Calibri; font-size:28px; color:black; font-weight: bold;"> Tanda Terima</span><br/>
-                    <span style="font-size:19px;"> Kepada : <span t-esc="docs.invoice_list[0].invoice_partner_display_name"/> </span><br/><br/>
+                    <span style="font-size:19px;"> Kepada : <span t-esc="docs.invoice_list[0].badan_hukum"/>.<span t-esc="docs.invoice_list[0].invoice_partner_display_name"/> </span><br/><br/>
                     <!-- <span style="font-size:23px;"> Periode <span t-esc="docs.periode"/> </span> -->
                 </div>
            

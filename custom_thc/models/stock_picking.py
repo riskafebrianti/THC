@@ -41,6 +41,17 @@ class Accmove(models.Model):
                 amount_to_words = currency.name+' '+number2words
 
         return amount_to_words
+    
+class res_partner(models.Model):
+    _inherit = 'res.partner'
+
+    badan_hukum = fields.Selection(
+        string='tes', store=True,
+        selection=[('PT', 'PT'), ('UD', 'UD'), ('CV', 'CV'), ('KOPRASI', 'KOPRASI'), ('YAYASAN', 'YAYASAN')]
+    )
+    
+    
+        
 
     
     

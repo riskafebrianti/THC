@@ -32,7 +32,7 @@
         'report/sd.xml',
         'report/fu.xml',
         'report/invTHC.xml',
-        'report/sale_report.xml',
+        # 'report/sale_report.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

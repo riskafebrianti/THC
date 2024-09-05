@@ -235,13 +235,13 @@
                             </div>
                         </div>
                     </t>
-                    <div name="commentt">
-                        <span >Terbilang : <span t-esc="o.number_to_words(o.amount_total,o.currency_id)"/></span>
+                    <div name="commentt" style="font:italic 14px lucida-console, sans-serif !important;" >
+                        <span >Terbilang : <i>#<span t-esc="o.number_to_words(o.amount_total,o.currency_id)" />#</i></span>
                         <br/><br/><br/>
                         <!-- <span t-field="o.narration"/> -->
                     </div>
                     <div t-if="not is_html_empty(o.narration)" name="comment">
-                        <span t-field="o.narration"/>
+                        <span  t-field="o.narration"/>
                     </div>
                     <p t-if="not is_html_empty(o.fiscal_position_id.note)" name="note">
                         <span t-field="o.fiscal_position_id.note"/>
@@ -260,10 +260,10 @@
                         </p>
                     </div>
                 </div>
-                <div class="ttd" style="border:0px solid; float: right; color: black; width:30% "> 
+                <div class="ttd" style="border:0px solid; float: right; color: black; width:30% ;"> 
                 <p>PT. TRINITY HEAVY COMPONENT</p><br/><br/><br/><br/><br/><br/><br/>
                     <!-- <strong><hr width="100%" style="border: 1px solid black; color: black !important;"/></strong> -->
-                    <p style="margin:top;"><center><u>Herdaru Purwianto</u><br/> Direktur</center></p>
+                    <p style="margin:top; "><center><u>Herdaru Purwianto</u><br/> Direktur</center></p>
                 </div>
             </t>
         </xpath>

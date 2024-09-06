@@ -13,7 +13,7 @@
     </record>
     
     
-    <!-- <record model="ir.ui.view" id="nama_model_form">
+    <record model="ir.ui.view" id="nama_model_form">
         <field name="name">res.partner.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
@@ -22,7 +22,7 @@
                 <field name="badan_hukum" placeholder="Badan Hukum"/>
             </xpath>
         </field>
-    </record> -->
+    </record>
 
 </odoo>
 

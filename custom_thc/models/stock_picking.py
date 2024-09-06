@@ -42,13 +42,13 @@ class Accmove(models.Model):
 
         return amount_to_words
     
-class res_partner(models.Model):
-    _inherit = 'res.partner'
+# class res_partner(models.Model):
+#     _inherit = 'res.partner'
 
-    badan_hukum = fields.Selection(
-        string='tes', store=True,
-        selection=[('PT', 'PT'), ('UD', 'UD'), ('CV', 'CV'), ('KOPRASI', 'KOPRASI'), ('YAYASAN', 'YAYASAN')]
-    )
+#     badan_hukum = fields.Selection(
+#         string='tes', store=True,
+#         selection=[('PT', 'PT'), ('UD', 'UD'), ('CV', 'CV'), ('KOPRASI', 'KOPRASI'), ('YAYASAN', 'YAYASAN')]
+#     )
     
     
         

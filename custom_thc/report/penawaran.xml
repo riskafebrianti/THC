@@ -5,7 +5,7 @@
             <!-- <t t-foreach="docs" t-as="o"> -->
                 <t t-call="custom_thc.no_footer">
                     
-                    <div class="page" style="border:0px solid; height:100%; margin-top:-50px; color:black;">
+                    <div class="page" style="border:0px solid; height:100%; color:black;">
                         
                         <span style="float:right; color:black;"><t t-esc="docs.company_id.city"/>, <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%d %B %Y')"/></span>
                         <br/>
@@ -28,7 +28,7 @@
                         <span>Kepada</span><br/>
                         <span>Yth. </span>
                             <t t-if="docs.partner_id.badan_hukum">
-                                <span><t t-esc="docs.partner_id.badan_hukum"/>. <t t-esc="docs.partner_id"/></span>
+                                <span><t t-esc="docs.partner_id.badan_hukum"/>. <t t-esc="docs.partner_id.name"/></span>
                             </t>
                             <t t-else="">
                                 <span><t t-esc="docs.partner_id.name"/></span>

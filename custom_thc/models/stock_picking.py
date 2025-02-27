@@ -49,6 +49,26 @@ class res_partner(models.Model):
         string='tes', store=True,
         selection=[('PT', 'PT'), ('UD', 'UD'), ('CV', 'CV'), ('KOPRASI', 'KOPRASI'), ('YAYASAN', 'YAYASAN')]
     )
+
+
+class saleOrder(models.Model):
+    _inherit = 'sale.order.line'
+
+    keterangan = fields.Char(string='Keterangan')
+
+
+class ModuleName(models.Model):
+    _inherit = 'sale.order'
+
+    # name = fields.Char(string='')
+
+
+    def set_open(self):
+        for gambar in self:
+            pict = self.env['ir.attachment'].sudo().search([('res_model','=', gambar._name),('res_id','=', gambar.id)])
+
+            print(pict)
+            return pict
     
     
         

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="paperformat_custom" model="report.paperformat">
+        <field name="name">Custom Format</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">35</field>
+        <field name="margin_bottom">30</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">25</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="paperformat_custom_landscape" model="report.paperformat">
+        <field name="name">Custom Format Landscape</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">4</field>
+        <field name="margin_bottom">15</field>
+        <field name="margin_left">7</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False" />
+        <!-- <field name="header_spacing">0</field> -->
+        <field name="dpi">150</field>
+    </record>
+
+
+ 
+<!-- report_kwitansi -->
+    <record id="action_report_tree_sale" model="ir.actions.report">
+        <field name="name">Penawaran</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">custom_thc.penawaran</field>
+        <field name="report_file">custom_thc.penawaran</field>
+        <field name="paperformat_id" ref="custom_thc.paperformat_custom"/>
+        <field name="print_report_name">'Penawaran - %s' % (object.name)</field> 
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        
+    </record>
+   
+<!-- <record id="action_report_tagihan" model="ir.actions.report">
+        <field name="name">Follow-up Report</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">cust_diskon.report_tagihan</field>
+        <field name="report_file">cust_diskon.report_tagihan</field>
+        <field name="print_report_name">'Follow-up Report'</field>
+        <field name="binding_model_id" ref="model_res_partner"/>
+    </record>  -->
+</odoo>
+

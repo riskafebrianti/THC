@@ -32,7 +32,10 @@
         'report/sd.xml',
         'report/fu.xml',
         'report/invTHC.xml',
-        'report/po.xml',
+
+        'report/report.xml',
+        'report/penawaran.xml',
+        # 'report/po.xml',
         'report/sale_report.xml',
     ],
     # only loaded in demonstration mode

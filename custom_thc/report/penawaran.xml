@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="penawaran">
+        <t t-call="web.html_container">
+            <!-- <t t-foreach="docs" t-as="o"> -->
+                <t t-call="custom_thc.no_footer">
+                    
+                    <div class="page" style="border:0px solid; height:100%; margin-top:-50px; color:black;">
+                        
+                        <span style="float:right; color:black;"><t t-esc="docs.company_id.city"/>, <t t-esc="context_timestamp(datetime.datetime.now()).strftime('%d %B %Y')"/></span>
+                        <br/>
+                        <div class="satu">
+                            <table style="border: none !important;">
+                                <tr>
+                                    <td class="border border-white" style="color:black;"><span>Nomor</span></td>
+                                    <td class="border border-white" style="color:black;">:</td>
+                                    <td class="border border-white" style="color:black;"><t t-esc="docs.name"/></td>
+                                </tr>
+                                <tr class="border border-white">
+                                    <td class="border border-white" style="color:black;">Perihal</td>
+                                    <td class="border border-white" style="color:black;">:</td>
+                                    <td class="border border-white" style="color:black;"><span>Penawaran Harga</span></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="dua" style="margin-top:20px;">
+                        <span>Kepada</span><br/>
+                        <span>Yth. </span>
+                            <t t-if="docs.partner_id.badan_hukum">
+                                <span><t t-esc="docs.partner_id.badan_hukum"/>. <t t-esc="docs.partner_id"/></span>
+                            </t>
+                            <t t-else="">
+                                <span><t t-esc="docs.partner_id.name"/></span>
+                            </t>
+                        <br/>
+                        <span>Di-</span><br/>
+                        <!-- <span t-field="   "/> -->
+                        <u><span style="margin-left:15px;"><t t-esc="docs.partner_id.street"/></span> </u>
+                        </div>
+                        
+                        <div style="margin-top:30px;" class="tiga">
+                            <span>Dengan Hormat,</span>
+                        </div>
+
+                        <div style="margin-top:20px;" class="tiga">
+                            <span>Berikut kami sampaikan penawaran used component, antara lain sebagai berikut ;</span>
+                            <table>
+                                <tr>
+                                    <td style="border: 1px solid;  font-size:19px; font-weight: bold; text-align: center; color:black; padding:5px; width:2%;">No</td>
+                                    <td style="border: 1px solid; font-size:19px; font-weight: bold; text-align: center; color:black; padding:5px; width:35%;">Nama Barang</td>
+                                    <td style="border: 1px solid; font-size:19px; font-weight: bold; text-align: center; color:black; padding:5px; width:10%;">No Part</td>
+                                    <td style="border: 1px solid; font-size:19px; font-weight: bold; text-align: center; color:black; padding:5px; width:15%;">Harga (Rupiah)</td>
+                                    <td style="border: 1px solid; font-size:19px; font-weight: bold; text-align: center; color:black; padding:5px; width:10%;">Keterangan</td>
+
+                                </tr>
+                                 <t t-set="no" t-value="1"/>
+                                <t t-foreach="docs.order_line" t-as="record">
+                                <tr>
+                                    <td style="border: 1px solid; font-size:13px;text-align: center; color:black; padding:5px;"><span t-esc="no"/> </td>
+                                    <td style="border: 1px solid; font-size:13px; text-align: left; color:black; padding:5px;"><span t-field="record.product_template_id.name"/> </td>
+                                    <td style="border: 1px solid; font-size:13px;text-align: center; color:black; padding:5px;"><span t-esc="record.product_template_id.default_code"/> </td>
+                                    <td style="border: 1px solid; font-size:13px; text-align: left; color:black; padding:5px;"><span t-field="record.price_unit"/> </td>
+                                    <td style="border: 1px solid; font-size:13px; text-align: left; color:black; padding:5px;"><span t-field="record.keterangan"/> </td>
+                                <t t-set="no" t-value="no + 1"/>
+                                </tr> 
+
+                                </t>
+                            </table>
+                        
+                        </div>
+                        
+                        <div class="note">
+                            <span>Note ;</span><br/>
+                            <t t-esc="docs.note"/>
+
+                        </div>
+
+                        <t t-if="docs.message_main_attachment_id">
+                            <div class="image">
+                            <t t-foreach="docs.set_open()" t-as="line">
+                                <img t-att-src="line.image_src" style="width:20%"/><span style="color:white">trinityheavy</span>
+                            </t>
+
+                            </div>
+                        </t>
+
+                        <div class="close"  style="margin-top:30px;">
+                            <span>Demikian surat penawaran disampaikan, kami nantikan info selanjutnya. Terima kasih.</span><br/>
+                        </div>
+                        <div class="ttd" style="border:0px solid;color: black; width:30% ;">
+                            <br/>
+                            <p>Hormat kami,</p>
+                            <img t-att-src="'/custom_thc/static/src/img/my_image.png'" style="height:110px; margin-left:-30px;"/>
+                                <!-- <strong><hr width="100%" style="border: 1px solid black; color: black !important;"/></strong> -->
+                            <span style="margin:top; float:left;"><center><u>Herdaru Purwianto</u><br/> HP 081 255 326 89</center></span>
+                        </div>                       
+                    
+
+                    </div>
+                    
+                </t>
+        </t>
+    </template>
+</odoo>

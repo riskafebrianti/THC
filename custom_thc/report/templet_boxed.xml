@@ -8,6 +8,15 @@
 
 </t>
 
+<!-- <t t-if="env['ir.actions.report']._get_report_from_name(docs._name).report_name == ['custom_thc.penawaran']">
+    <div class="footer">
+        <p>This footer appears only for Sale Orders and Invoices.</p>
+    </div>
+</t> -->
+<!-- <t t-if="docs.env.ref('custom_thc.action_report_tree_sale').id == 503">
+
+</t> -->
+
 <t t-else="">
         <img t-att-src="'/custom_thc/static/src/img/my_image.png'" style="height:110px; float:right; display:flex; margin-bottom:-155px;"/>
         <div class="text-center">
@@ -33,6 +42,48 @@
 
         
 
+ </template>
+
+ <template id="no_footer" name="no_footer">
+    <div t-attf-class="header o_company_#{docs.company_id.id}_layout" t-att-style="report_header_style">
+            <div class="o_boxed_header">
+            <div class="row mb8">
+                <div class="col-6">
+                    <img t-if="docs.company_id.logo" t-att-src="image_data_uri(docs.company_id.logo)" alt="Logo"/>
+                </div>
+                <div class="col-6 text-end mb4">
+                    <div class="mt0 h4" t-field="docs.company_id.report_header"/>
+                    <div name="company_address" class="float-end mb4">
+                        <ul class="list-unstyled">
+                            <li t-if="docs.company_id.is_company_details_empty"><t t-esc="docs.company_id.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'/></li>
+                            <li t-else=""><t t-esc="docs.company_id.company_details"/></li>
+                            <li t-if="forced_vat">
+                                <t t-esc="docs.company_id.country_id.vat_label or 'Tax ID'"/>:
+                                <span t-esc="forced_vat"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div t-attf-class="article o_report_layout_boxed o_company_#{docs.company_id.id}_layout {{  'o_report_layout_background' if docs.company_id.layout_background in ['Geometric', 'Custom']  else  '' }}" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % docs.company_id.layout_background_image.decode('utf-8') if docs.company_id.layout_background_image and docs.company_id.layout_background == 'Custom' else '/base/static/img/bg_background_template.jpg' if docs.company_id.layout_background == 'Geometric' else ''}});" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <div class="pt-5">
+                <!-- This div ensures that the address is not cropped by the header. -->
+                <t t-call="web.address_layout"/>
+            </div>
+            <t t-out="0"/>
+        </div>
+        <!-- <img t-att-src="'/custom_thc/static/src/img/kop_surat.png'" style="height:83px; float:center; display:flex; margin-bottom:-155px;"/> -->
+
+
+        <div t-attf-class="o_company_#{docs.company_id.id}_layout footer o_background_footer">
+        <!-- o_company_#{company.id}_layout footer o_background_footer -->
+            <img t-att-src="'/custom_thc/static/src/img/kop_surat.png'" style="height:83px; margin-left:-70px float:center; display:flex; margin-bottom:-155px;"/>
+           
+        </div>
+       
  </template>
 
 

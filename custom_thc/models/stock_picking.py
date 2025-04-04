@@ -60,9 +60,51 @@ class saleOrder(models.Model):
 class ModuleName(models.Model):
     _inherit = 'sale.order'
 
-    # name = fields.Char(string='')
+   
+    diskon = fields.Float(string='Diskon Total')
 
+    # def button_dummy(self):
 
+    #     self.supply_rate()
+    #     return True
+
+    @api.depends('order_line.price_subtotal', 'order_line.price_tax', 'order_line.price_total','diskon')
+    def _compute_amounts(self):
+        """Compute the total amounts of the SO."""
+        for order in self:
+            order_lines = order.order_line.filtered(lambda x: not x.display_type)
+
+            if order.company_id.tax_calculation_rounding_method == 'round_globally':
+                tax_results = self.env['account.tax']._compute_taxes([
+                    line._convert_to_tax_base_line_dict()
+                    for line in order_lines
+                ])
+                totals = tax_results['totals']
+                amount_untaxed = totals.get(order.currency_id, {}).get('amount_untaxed', 0.0)
+                amount_tax = totals.get(order.currency_id, {}).get('amount_tax', 0.0)
+                diskon = totals.get(order.currency_id, {}).get('diskon', 0.0)
+            else:
+                amount_untaxed = sum(order_lines.mapped('price_subtotal'))
+                amount_tax = sum(order_lines.mapped('price_tax'))
+                diskon = self.diskon
+
+            order.amount_untaxed = amount_untaxed
+            order.amount_tax = amount_tax
+            order.diskon = diskon
+            order.amount_total = order.amount_untaxed + order.amount_tax - order.diskon
+
+    
+    # @api.depends('amount_untaxed', 'amount_tax', 'diskon')
+    # def _compute_amount(self):
+    #     for order in self:
+    #         super(saleOrder, order)._compute_amount()
+    #         order.amount_total -= order.diskon
+    # @api.onchange('diskon')
+    # def _onchange_diskon(self):
+    #     if self.diskon:
+    #         self.amount_untaxed = self.amount_undiscounted - self.diskon  # ✅ Perbaikan: Tetapkan langsung
+    #         print(self)
+    
     def set_open(self):
         for gambar in self:
             pict = self.env['ir.attachment'].sudo().search([('res_model','=', gambar._name),('res_id','=', gambar.id)])
